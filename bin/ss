@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DATE=$(date +"%Y%m%d-%H%M%S")
+
+scrot ~/Desktop/cheetsheets/screen/image/${DATE}_screenshot_display.png
