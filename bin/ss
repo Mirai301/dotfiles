@@ -2,4 +2,4 @@
 
 DATE=$(date +"%Y%m%d-%H%M%S")
 
-scrot ~/Desktop/cheetsheets/screen/image/${DATE}_screenshot_display.png
+scrot ~/Desktop/pentest/pen200/screenshots/${DATE}_screenshot_display.png
