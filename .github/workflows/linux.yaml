@@ -11,8 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install the zsh
-      run: sudo apt update; sudo apt install zsh
+    - name: Setup
+      run: sudo apt update; sudo apt install zsh tmux
 
     - name: Run init.sh
       run: ${GITHUB_WORKSPACE}/bin/init.sh
@@ -20,4 +20,13 @@ jobs:
     - name: Load .zshrc
       run: |
         zsh ~/.zshrc 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
+
+    - name: Load .vimrc
+      run: |
+        vim -c ":source ~/.vimrc"
+
+    - name: Load .tmux.conf
+      run: |
+        tmux new-session -d; tmux source-file ~/.tmux.conf 2> error.log; cat error.log
         if [ -s error.log ]; then false; fi
