@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 BASE_DIR=$(cd "$(dirname "$0")" && cd .. && pwd)
 

@@ -11,9 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Run brew bundle
-      run: brew bundle
-
     - name: Run init.sh
       run: ${GITHUB_WORKSPACE}/bin/init.sh
 
