@@ -11,10 +11,24 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Run brew bundle
+      run: brew bundle
+
     - name: Run init.sh
       run: ${GITHUB_WORKSPACE}/bin/init.sh
 
-    - name: Load .zshrc
+    - name: Check .zshrc
       run: |
         zsh ~/.zshrc 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
+        - name: Check .vimrc
+
+    - name: Check .vimrc
+      run: |
+        ex -c ":source ~/.vimrc|:q" 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
+    
+    - name: Check .tmux.conf
+      run: |
+        tmux new-session -d; tmux source-file ~/.tmux.conf 2> error.log; cat error.log
         if [ -s error.log ]; then false; fi

@@ -5,6 +5,7 @@ brew "mas"
 brew "node"
 brew "qemu"
 brew "tmux"
+brew "vim"
 cask "adobe-acrobat-pro"
 cask "adobe-creative-cloud"
 cask "discord"
@@ -27,4 +28,5 @@ cask "utm"
 cask "visual-studio-code"
 cask "zoom"
 mas "LINE", id: 539883307
+mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
