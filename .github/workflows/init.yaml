@@ -1,0 +1,35 @@
+name: lint
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  lint-check:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
+
+    - name: Install required packages
+      run: |
+        brew install shellcheck
+        pip install --upgrade pip
+
+    # Lint check
+    - name: Check bin/init.sh
+      run: shellcheck -s zsh ${GITHUB_WORKSPACE}/bin/init.sh
+
+    - name: Check .zsh_profile
+      run: shellcheck -s zsh ${GITHUB_WORKSPACE}/.zsh_profile
+
+    - name: Check .zshrc
+      run: shellcheck ${GITHUB_WORKSPACE}/.zshrc

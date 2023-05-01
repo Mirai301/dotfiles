@@ -1,0 +1,28 @@
+name: macos
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  macos-test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Run brew bundle
+      run: brew bundle
+
+    - name: Run init.sh
+      run: ${GITHUB_WORKSPACE}/bin/init.sh
+
+    - name: Load .zsh_profile
+      run: |
+        zsh ~/.zsh_profile 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
+
+    - name: Load .zshrc
+      run: |
+        zsh ~/.zshrc 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
