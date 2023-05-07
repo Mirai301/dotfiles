@@ -9,5 +9,6 @@ echo "### Create symlinks for dotfiles"
 ln -sf "$BASE_DIR"/.zshrc       ~/.zshrc
 ln -sf "$BASE_DIR"/.tmux.conf        ~/.tmux.conf
 ln -sf "$BASE_DIR"/.vimrc        ~/.vimrc
+ln -sf "$BASE_DIR"/.gitconfig   ~/.gitconfig
 
 echo -e "\n[Finish]"
