@@ -10,6 +10,6 @@ ln -sf "$BASE_DIR"/../.zshrc       ~/.zshrc
 ln -sf "$BASE_DIR"/../.tmux.conf        ~/.tmux.conf
 ln -sf "$BASE_DIR"/../.vimrc        ~/.vimrc
 ln -sf "$BASE_DIR"/../.gitconfig   ~/.gitconfig
-ln -sf "$BASE_DIR"/ss	/usr/bin/ss
+# ln -sf "$BASE_DIR"/ss	/usr/bin/ss
 
 echo -e "\n[Finish]"
